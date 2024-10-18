@@ -1,11 +1,17 @@
 #include <fstream>
 #include <iostream>
-#include <sstream>
 #include <string>
 
 int main(int argc, char **argv) {
 	if (argc != 4) {
 		std::cerr << "Usage: ./ft_sed [file] [search] [replace]" << std::endl;
+		return (EXIT_FAILURE);
+	}
+
+	std::string search(argv[2]);
+	if (search.empty())
+	{
+		std::cerr << "Empty search not allowed" << std::endl;
 		return (EXIT_FAILURE);
 	}
 
@@ -16,6 +22,7 @@ int main(int argc, char **argv) {
 		return (EXIT_FAILURE);
 	}
 
+
 	std::string outFileName(inFileName + ".replace");
 	std::ofstream outFile(outFileName);
 	if (inFile.fail()) {
@@ -24,26 +31,20 @@ int main(int argc, char **argv) {
 		return (EXIT_FAILURE);
 	}
 
-	std::string search(argv[2]);
 	std::string replace(argv[3]);
-	std::stringstream stash;
-	size_t i = 0;
+	std::string line;
 	while (!inFile.eof()) {
-		char c;
+		std::getline(inFile, line);
 
-		inFile >> c;
-		stash << c;
-
-		if (search[i] == c) {
-			if (search.size() == ++i) {
-				outFile << replace;
-				stash.str(std::string());
-				i = 0;
-			}
-		} else {
-			outFile << stash.rdbuf();
-			i = 0;
+		size_t start = 0;
+		size_t end = line.find(search, start);
+		while (std::string::npos != end) {
+			outFile << line.substr(start, end - start) << replace;
+			start = end + search.size();
+			end = line.find(search, start);
 		}
+
+		outFile << line.substr(start) << std::endl;
 	}
 
 	inFile.close();
