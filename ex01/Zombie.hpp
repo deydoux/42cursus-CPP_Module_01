@@ -9,9 +9,12 @@ class Zombie
 private:
 	std::string	_name;
 public:
-	Zombie(std::string name);
+	Zombie(std::string name = "Unamed");
 	~Zombie();
+	void setName(std::string name);
 	void announce();
 };
+
+Zombie *zombieHorde(int n, std::string name);
 
 #endif

@@ -1,4 +1,4 @@
-NAME = braiiiiiiinnnzzzz
+NAME = moar_braiz
 
 SOURCES = \
 main.cpp \
