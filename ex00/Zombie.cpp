@@ -8,6 +8,6 @@ Zombie::~Zombie() {
 	std::cerr << this->_name << " Zombie destructor called" << std::endl;
 }
 
-void Zombie::announce() {
+void Zombie::announce() const {
 	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
