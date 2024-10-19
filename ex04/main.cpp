@@ -32,8 +32,8 @@ int main(int argc, char **argv) {
 	}
 
 	std::string replace(argv[3]);
-	std::string line;
 	while (!inFile.eof()) {
+		std::string line;
 		std::getline(inFile, line);
 
 		size_t start = 0;
