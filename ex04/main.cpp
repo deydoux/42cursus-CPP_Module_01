@@ -5,21 +5,21 @@
 int main(int argc, char **argv) {
 	if (argc != 4) {
 		std::cerr << "Usage: ./ft_sed [file] [search] [replace]" << std::endl;
-		return (EXIT_FAILURE);
+		return (1);
 	}
 
 	std::string search(argv[2]);
 	if (search.empty())
 	{
 		std::cerr << "Empty search not allowed" << std::endl;
-		return (EXIT_FAILURE);
+		return (1);
 	}
 
 	std::string inFileName(argv[1]);
 	std::ifstream inFile(inFileName);
 	if (inFile.fail()) {
 		std::cerr << "Can't open " << inFileName << " in file" << std::endl;
-		return (EXIT_FAILURE);
+		return (1);
 	}
 
 
@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
 	if (inFile.fail()) {
 		std::cerr << "Can't open " << outFileName << " out file" << std::endl;
 		inFile.close();
-		return (EXIT_FAILURE);
+		return (1);
 	}
 
 	std::string replace(argv[3]);

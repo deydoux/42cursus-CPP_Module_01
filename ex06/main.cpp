@@ -3,7 +3,7 @@
 int main(int argc, char **argv) {
 	if (argc != 2) {
 		std::cerr << "Usage: ./harlFilter [DEBUG|INFO|WARNING|ERROR]" << std::endl;
-		return (EXIT_FAILURE);
+		return (1);
 	}
 
 	Harl harl;
