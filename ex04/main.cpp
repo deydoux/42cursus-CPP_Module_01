@@ -16,15 +16,14 @@ int main(int argc, char **argv) {
 	}
 
 	std::string inFileName(argv[1]);
-	std::ifstream inFile(inFileName);
+	std::ifstream inFile(inFileName.c_str());
 	if (inFile.fail()) {
 		std::cerr << "Can't open " << inFileName << " in file" << std::endl;
 		return (1);
 	}
 
-
 	std::string outFileName(inFileName + ".replace");
-	std::ofstream outFile(outFileName);
+	std::ofstream outFile(outFileName.c_str());
 	if (inFile.fail()) {
 		std::cerr << "Can't open " << outFileName << " out file" << std::endl;
 		inFile.close();
