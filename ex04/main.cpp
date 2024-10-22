@@ -9,8 +9,7 @@ int main(int argc, char **argv) {
 	}
 
 	std::string search(argv[2]);
-	if (search.empty())
-	{
+	if (search.empty()) {
 		std::cerr << "Empty search not allowed" << std::endl;
 		return (1);
 	}
