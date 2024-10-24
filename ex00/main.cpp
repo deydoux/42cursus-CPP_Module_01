@@ -1,10 +1,10 @@
 #include "Zombie.hpp"
 
 int main(void) {
-	Zombie *zozo = newZombie("zozo");
+	Zombie *zozo = newZombie("Shane");
 
 	zozo->announce();
-	randomChump("Beyonce");
+	randomChump("Hershel");
 
 	delete zozo;
 }
