@@ -27,7 +27,7 @@ Harl::~Harl() {
 }
 
 void Harl::complain(std::string level) const {
-	std::string const levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	const std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	void (Harl::*methods[])() const = {&Harl::_debug, &Harl::_info, &Harl::_warning, &Harl::_error};
 
 	for (size_t i = 0; i < 4; i++)

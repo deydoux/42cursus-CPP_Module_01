@@ -30,7 +30,7 @@ Harl::~Harl() {
 }
 
 void Harl::complain(std::string level) const {
-	std::string const levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	const std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
 	size_t i = 0;
 	while (levels[i] != level && i < 4)
