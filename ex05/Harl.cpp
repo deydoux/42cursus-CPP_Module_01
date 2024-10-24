@@ -28,11 +28,11 @@ Harl::~Harl() {
 
 void Harl::complain(std::string level) const {
 	std::string const levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void (Harl::*funcs[])() const = {&Harl::_debug, &Harl::_info, &Harl::_warning, &Harl::_error};
+	void (Harl::*methods[])() const = {&Harl::_debug, &Harl::_info, &Harl::_warning, &Harl::_error};
 
 	for (size_t i = 0; i < 4; i++)
 		if (levels[i] == level)
-			return ((this->*funcs[i])());
+			return ((this->*methods[i])());
 
-	std::cout << "Invalid complaint level" << std::endl;
+	std::cout << "Probably complaining about insignificant problems" << std::endl;
 }
