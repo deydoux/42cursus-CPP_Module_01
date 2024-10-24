@@ -1,4 +1,4 @@
-NAME = unnecessary_violence
+NAME = ex03
 
 SOURCES = \
 HumanA.cpp \

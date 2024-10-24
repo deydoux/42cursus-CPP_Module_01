@@ -1,4 +1,4 @@
-NAME = braiiiiiiinnnzzzz
+NAME = ex00
 
 SOURCES = \
 main.cpp \

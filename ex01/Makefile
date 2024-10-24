@@ -1,4 +1,4 @@
-NAME = moar_braiz
+NAME = ex01
 
 SOURCES = \
 main.cpp \
