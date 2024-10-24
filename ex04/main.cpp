@@ -30,7 +30,7 @@ int main(int argc, char **argv) {
 	}
 
 	std::string replace(argv[3]);
-	while (!inFile.eof()) {
+	while (!inFile.fail() && !outFile.fail()) {
 		std::string line;
 		std::getline(inFile, line);
 
@@ -42,7 +42,10 @@ int main(int argc, char **argv) {
 			end = line.find(search, start);
 		}
 
-		outFile << line.substr(start) << std::endl;
+		outFile << line.substr(start);
+		if (inFile.eof())
+			break ;
+		outFile << std::endl;
 	}
 
 	inFile.close();
