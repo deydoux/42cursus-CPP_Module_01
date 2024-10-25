@@ -30,7 +30,7 @@ int main(int argc, char **argv) {
 	}
 
 	std::string replace(argv[3]);
-	while (!inFile.fail() && !outFile.fail()) {
+	while (!inFile.eof() && !inFile.fail() && !outFile.fail()) {
 		std::string line;
 		std::getline(inFile, line);
 
@@ -43,9 +43,8 @@ int main(int argc, char **argv) {
 		}
 
 		outFile << line.substr(start);
-		if (inFile.eof())
-			break ;
-		outFile << std::endl;
+		if (!inFile.eof())
+			outFile << std::endl;
 	}
 
 	inFile.close();
